@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar from "./ComponentAvatar"
-import TestAva from "../assets/pexels-alexandr-podvalny-1227513.jpeg"
+import TestAva from "../assets/pexels-alexandr-podvalny-1227513.webp"
 import ComponentTooltip from "./ComponentTooltip"
 
 

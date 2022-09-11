@@ -1,5 +1,5 @@
 import React from "react";
-import Background from "../assets/pexels-alexandr-podvalny-1227513.jpeg"
+import Background from "../assets/cropBkg.webp"
 import Button from "./ComponentButtton";
 
 const Avatar = (props) => {

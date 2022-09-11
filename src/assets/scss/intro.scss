@@ -17,7 +17,7 @@
     &_bkg {
         width: 100%;
         opacity: 0.5;
-        object-position: 50% 75%;
+        object-position: 50% 58%;
         object-fit: none;
 
     }
@@ -25,7 +25,7 @@
     &_title {
         margin-top: 0;
         text-align: center;
-        margin-bottom: 21px;
+        margin-bottom: 20px;
     }
 
     &_contaner {
@@ -92,6 +92,16 @@
 
     .intro_block {
         margin-bottom: 30px;
+        text-align: center;
+
+    }
+    .intro_contaner {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .intro_bkg {
+
+        object-position: 50% 55%;
 
     }
 }
