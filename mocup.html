@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test app</title>
+        <link rel="stylesheet" href="./src/App.css">
+    </head>
+    <body>
+        <div class="root">
+            <header class="header">
+                <div class="header_wrapper">
+                    <div class="header_logo">
+                        <img src="./src/assets/Logo.svg" alt="logo">
+                    </div>
+                    <div class="header_buttons">
+                        <button class="header_button">Users</button>
+                        <button class="header_button">Sign in</button>
+                    </div>
+                </div>
+            </header>
+            <div class="wrapper">
+                <main class="main">
+                    <div class="main_contaner">
+                        <div class="main_block">
+                            <h1 class="main_title">
+                                Test assignment for front-end developer
+                            </h1>
+                            <p class="main_desc">
+                                What defines a good front-end developer is one that has skilled knowledge of
+                                HTML, CSS, JS with a vast understanding of User design thinking as they'll be
+                                building web interfaces with accessibility in mind. They should also be excited
+                                to learn, as the world of Front-End Development keeps evolving.
+                            </p>
+                            <button class="main_button">Sign in</button>
+                        </div>
+                    </div>
+                    <div class="main_bkgcontainer">
+                        <img
+                            src="./src/assets/pexels-alexandr-podvalny-1227513.jpeg"
+                            class="main_bkg"
+                            alt="">
+                    </div>
+                </main>
+                <section class="users">
+                    <h2 class="users_title">
+                        Working with GET request
+                    </h2>
+                    <div class="users_cards">
+                        <div class="user">
+                            <div class="user_avatar">
+                                <img
+                                    src="./src/assets/pexels-alexandr-podvalny-1227513.jpeg"
+                                    class="user_img"
+                                    alt="">
+                            </div>
+                            <div class="user_fullname">Lorem ipsum dolor sit amet, consectetur
+                            </div>
+                            <div class="user_moreinfo">
+                                <div class="user_role">Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                                <div class="user_email">Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                                <div class="user_phone">Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="user_avatar">
+                                <img
+                                    src="./src/assets/pexels-alexandr-podvalny-1227513.jpeg"
+                                    class="user_img"
+                                    alt="">
+                            </div>
+                            <div class="user_fullname">Lorem ipsum dolor sit amet, consectetur
+                            </div>
+                            <div class="user_moreinfo">
+                                <div class="user_role">Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                                <div class="user_email">Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                                <div class="user_phone">Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="user_avatar">
+                                <img
+                                    src="./src/assets/pexels-alexandr-podvalny-1227513.jpeg"
+                                    class="user_img"
+                                    alt="">
+                            </div>
+                            <div class="user_fullname">Lorem ipsum dolor sit amet, consectetur
+                            </div>
+                            <div class="user_moreinfo">
+                                <div class="user_role">Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                                <div class="user_email">Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                                <div class="user_phone">Lorem ipsum dolor sit amet, consectetur
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="users_button">Show more</button>
+                </section>
+                <section class="registration">
+                    <h2 class="registration_title">Working with POST request</h2>
+                    <form action="" class="registration_form">
+                        <input
+                            type="text"
+                            class="registration_input"
+                            placeholder="Your name"
+                            name="name">
+                        <input type="email" class="registration_input" placeholder="Email" name="email">
+                        <input
+                            type="text"
+                            class="registration_input registration_phone"
+                            placeholder="Phone"
+                            name="phone">
+                        <label class="registration_roleblock" for="role">
+                            <p class="registration_roletitle">Select your position</p>
+                            <fieldset id="role" class="registration_fieldset">
+                                <label class="role">Frontend developer
+                                    <input type="radio" name="role" class="role_option" value="Frontend developer">
+                                    <span class="role_mark"></span>
+                                </label>
+                                <label class="role">Backend developer
+                                    <input type="radio" name="role" class="role_option" value="Backend developer">
+                                    <span class="role_mark"></span>
+                                </label>
+                                <label class="role">Designer
+                                    <input type="radio" name="role" class="role_option" value="Designer">
+                                    <span class="role_mark"></span>
+                                </label>
+                                <label class="role">QA
+                                    <input type="radio" name="role" class="role_option" value="QA">
+                                    <span class="role_mark"></span>
+                                </label>
+                            </fieldset>
+                        </label>
+                        <label for="file" class="registration_fileblock">
+                            <input type="file" id="file" class="registration_hide" name="avatar">
+                            <span class="registration_fileinput">Upload your photo</span>
+                        </label>
+                        <input type="submit" class="registration_submit" value="Sign up">
+                    </form>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>
