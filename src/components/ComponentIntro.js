@@ -1,8 +1,12 @@
 import React from "react";
 import Background from "../assets/cropBkg.webp"
 import Button from "./ComponentButtton";
-
-const Avatar = (props) => {
+/**
+ * ComponentIntro what render main content
+ * 
+ * @returns 
+ */
+const ComponentIntro = () => {
     return (
         <main className={"intro"}>
                     <div className={"intro_contaner"}>
@@ -28,4 +32,4 @@ const Avatar = (props) => {
                 </main>
     )
 }
-export default Avatar;
+export default ComponentIntro;

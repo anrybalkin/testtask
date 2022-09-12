@@ -1,5 +1,9 @@
 import React, {useState, useRef} from 'react';
-
+/**
+ * Component Input what render input and with props and validate by prps callback
+ * @param {*} props 
+ * @returns 
+ */
 const ComponentInput = (props) => {
 
     const [error,

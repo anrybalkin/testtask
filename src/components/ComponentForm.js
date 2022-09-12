@@ -6,15 +6,23 @@ import Succes from "../assets/success-image.svg";
 import ComponentPhoneInput from "./ComponentPhoneInput";
 import {validateEmail, validateName, validationImg, validateForm} from "./validate";
 import {LocalContext} from "./Context";
-
+/**
+ *  component Form who render form and handle it
+ * @returns 
+ */
 const Form = () => {
     const [token,
         setToken] = useState("");
+        /**
+         * const status is status register user if true then hide form and show congrats
+         */
     const [status,
         setStatus] = useState(false);
     const form = useRef();
     const {setRe_Render} = useContext(LocalContext);
-
+ /**
+  * hook what get token
+  */
     useEffect(() => {
         fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
             .then(function (response) {
@@ -24,18 +32,12 @@ const Form = () => {
                 setToken(data.token)
             })
     })
-
+/**
+ * callback  onSubmit form who validate and send form
+ * @param {Event} e 
+ * @returns 
+ */
     async function handleSubmit(e) {
-        if (e == undefined) {
-            validateForm(null, {
-                email: "email",
-                name: "name",
-                position_id: "position_id",
-                phone: "phone",
-                photo: "photo"
-            })  
-            return;
-        }
         e.preventDefault();
 
         let formData = new FormData(form.current);

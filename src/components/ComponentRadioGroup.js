@@ -1,9 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import ComponentRadioBTN from './ComponentRadioBTN';
-
+import ComponentPreloader from "./ComponentPreloader";
+/**
+ * Component what render group with radio btn and same name
+ * @param {*} props 
+ * @returns 
+ */
 const ComponentRadioGroup = (props) => {
+    /**
+     * const positions - store data from server
+     */
     const [positions,
         setPositions] = useState([]);
+
+    /**
+     * Hook what get content for radio btn and store it
+     */
     useEffect(() => {
         if(positions.length==0)
         {
@@ -30,7 +42,7 @@ const ComponentRadioGroup = (props) => {
     }
     else
     {
-        return <div> loading</div>
+        return <ComponentPreloader></ComponentPreloader>
     }
 }
 

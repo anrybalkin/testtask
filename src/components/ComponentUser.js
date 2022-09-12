@@ -1,10 +1,14 @@
 import React from 'react';
 import Avatar from "./ComponentAvatar"
-import TestAva from "../assets/pexels-alexandr-podvalny-1227513.webp"
+import TestAva from "../assets/cropBkg.webp"
 import ComponentTooltip from "./ComponentTooltip"
 
 
-
+/**
+ * Component what render usercard
+ * @param {Object} props user data
+ * @returns 
+ */
 const UserCard = (props) => {
     let Number= props.data.phone.match(/\d*(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})/);
     let formatedNumber="+"+Number[1]+" ("+Number[2]+") "+Number[3]+" "+Number[4]+" "+Number[5]

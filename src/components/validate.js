@@ -1,19 +1,32 @@
+/**
+ * func what validate email
+ * @param {string} Email text
+ * @returns {Boolean} status validtion 
+ */
 export function validateEmail(Email) {
     return Email.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/) != null
 }
-
+/**
+ * func what validate name
+ * @param {string} text  name
+ * @returns {Boolean} status validtion
+ */
 export function validateName(text) {
     return text.length >= 2 && text.length <= 60
 }
-
+/**
+ * func what validate position id 
+ * @param {Int16Array} id  position id 
+ * @returns {Boolean} status validtion
+ */
 export function validateId(id) {
-    return id
-        .toString()
-        .length > 1
-        ? false
-        : true
+    return id < 10&&id > 0
 }
-
+/**
+ * func what get dimention from file
+ * @param {URL} uri file
+ * @returns {Object} with height and width
+ */
 const getDimention = uri => new Promise(resolve => {
     const img = new Image()
     img.onload = () => {
@@ -21,7 +34,11 @@ const getDimention = uri => new Promise(resolve => {
     }
     img.src = uri
 })
-
+/**
+ * func what validate img 
+ * @param {File} file file
+ * @returns {Boolean} status
+ */
 export async function validationImg(file) {
     const fileAsDataURL = window
         .URL
@@ -49,7 +66,12 @@ export async function validationImg(file) {
     return status;
 
 }
-
+/**
+ * func what validate form
+ * @param {FormData} fromdata fromdata
+ * @param {Object} keys object with key for set error
+ * @returns {Object} object with status result
+ */
 export async function validateForm(fromdata, keys) {
 
     if (keys == undefined) {
@@ -66,7 +88,7 @@ export async function validateForm(fromdata, keys) {
     const name = validateName(fromdata.get(keys.name));
     const email = validateEmail(fromdata.get(keys.email));
     const role = fromdata.get(keys.position_id) !== null
-        ? fromdata.get(keys.position_id) < 10&&fromdata.get(keys.position_id) > 0
+        ? validateId(fromdata.get(keys.position_id))
         : false;
     const phone = fromdata
         .get("phone")

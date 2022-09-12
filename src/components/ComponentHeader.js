@@ -1,8 +1,12 @@
 import React from "react";
 import Logo from "../assets/Logo.svg"
 import Button from "./ComponentButtton";
-
-const Header = (text,type) => {
+/**
+ * 
+ * Component Header what render header 
+ * @returns 
+ */
+const Header = () => {
     return (
         <header className={"header"}>
                 <div className={"header_wrapper"}>

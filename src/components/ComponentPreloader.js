@@ -1,6 +1,9 @@
 import React from "react";
 import PreloaderSVG from "../assets/Preloader.svg"
-
+/**
+ * Compotent what render preloader 
+ * @returns 
+ */
 const ComponentPreloader=()=>{
 return (
 

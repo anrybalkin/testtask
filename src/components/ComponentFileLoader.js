@@ -1,5 +1,9 @@
 import React, {useRef, useState} from "react";
-
+/**
+ * Component FileLoader who render file input
+ * @param {*} props 
+ * @returns 
+ */
 const ComponentFileLoader = (props) => {
     const [name,
         setName] = useState(props.placeholer);

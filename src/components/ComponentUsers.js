@@ -4,8 +4,12 @@ import Button from './ComponentButtton';
 import {LocalContext} from './Context';
 import ComponentPreloader from "./ComponentPreloader";
 
-
-const Users = (props) => {
+/**
+ * Componet what render users section with users
+ * 
+ * @returns 
+ */
+const Users = () => {
     const [users,
         setUsers] = useState(null);
     const [page,
@@ -14,7 +18,9 @@ const Users = (props) => {
         setPages] = useState(null);
     let btn = useRef()
     const { re_render,setRe_Render } = useContext(LocalContext);
-
+        /**
+         * Hook what get first data when did mount
+         */
     useEffect(() => {
         if (users == null && (pages == null || pages > page)) {
             fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users?page=" + page + "&count=6").then(response => {
@@ -25,6 +31,11 @@ const Users = (props) => {
                 setPages(data.total_pages)
             })
         }
+    })
+    /**
+     * Hook what reset data when created new user and get it again
+     */
+    useEffect(()=>{
         if (pages - page == 1) {
             btn.current.style.display = "none";
         }
@@ -43,8 +54,10 @@ const Users = (props) => {
             })
 
         }
-    })
-
+    });
+/**
+ * func callback on click what load more data users 
+ */
     function showMore() {
         fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users?page=" + page + "&count=6").then(response => {
             return response.json()

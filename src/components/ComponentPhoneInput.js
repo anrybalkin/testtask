@@ -1,14 +1,34 @@
 import React, {useRef, useEffect, useState} from 'react';
-
+/**
+ * Component
+ * what render input type tel and validate and format phone in real time
+ * @param {Object} props 
+ * {
+ * reqired bool - for set option require
+ * placeholder string - for set placeholder in input 
+ * }
+ * @returns
+ */
 const ComponentPhoneInput = (props) => {
 
     let input = useRef();
+    /**
+     * Const what store if pressed Backspace
+     */
     const [keyBackspace,
         setBackspace] = useState(false)
+    /**
+     * Const what store if pressed numbers
+     */
     const [keyNumber,
         setNumber] = useState(false)
-
+    /**
+    * Hook what set onfocus and onblur callback
+     */
     useEffect(() => {
+        /**
+         *  init value on focus with text: +38 (0XX) 
+         */
         input.current.onfocus = () => {
             if (input.current.value.indexOf("+") === -1) {
                 input.current.value = input
@@ -17,9 +37,12 @@ const ComponentPhoneInput = (props) => {
                     .indexOf("+38 (0XX)") == -1
                     ? "+38 (0XX)" + input.current.value
                     : input.current.value;
-                    
+
             }
         }
+        /**
+         * remove date form value if user nothing input
+         */
         input.current.onblur = () => {
             if (input.current.value.length == 9) 
                 input.current.value = input.current.value.indexOf("+38 (0XX)") == 0
@@ -27,17 +50,20 @@ const ComponentPhoneInput = (props) => {
                     : input.current.value;
             }
         })
-
+/**
+ * Handler input format number in real time
+ * @param {Event} e 
+ */
     function onInput(e) {
-        if (e.target.value !== "" &&  keyBackspace == false&& keyNumber) {
+        if (e.target.value !== "" && keyBackspace == false && keyNumber) {
 
             if (e.target.value.length > 19) {
-                e.target.value = e
+                let Number = e
                     .target
                     .value
-                    .substring(0, 19);
-                    let Number = e.target.value.replace(/[^\d]/g, '').match(/(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})/);
-                    e.target.value = "+38 (" + Number[2] + ") " + Number[3] + " " + Number[4] + " " + Number[5];
+                    .replace(/[^\d]/g, '')
+                    .match(/(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})/);
+                e.target.value = "+38 (" + Number[2] + ") " + Number[3] + " " + Number[4] + " " + Number[5];
             } else {
                 let tmp = e
                     .target
@@ -57,7 +83,9 @@ const ComponentPhoneInput = (props) => {
                     case tmp.length < 6 && tmp.length >= 3:
                         {
                             let Number = tmp.match(/(\d{2})(\d{1,3})/);
-                            e.target.value = "+38 (0" + Number[1] + ") " + (Number[2].length==3?Number[2]+" ":Number[2]);
+                            e.target.value = "+38 (0" + Number[1] + ") " + (Number[2].length == 3
+                                ? Number[2] + " "
+                                : Number[2]);
                         }
                         break;
                     case tmp.length < 8 && tmp.length >= 6:
@@ -78,14 +106,17 @@ const ComponentPhoneInput = (props) => {
         }
 
     }
-
+/**
+ * Handler onblur format number when user switch focus
+ * @param {*} e 
+ */
     function blurHandler(e) {
         let errorSpan = document.querySelector(".input[name='" + props.name + "'] ~ .input_error");
         let helperSpan = document.querySelector(".input[name='" + props.name + "'] ~ .input_helper");
-        let tmp = "+"+e
-                    .target
-                    .value
-                    .replace(/[^\d]/g, '');
+        let tmp = "+" + e
+            .target
+            .value
+            .replace(/[^\d]/g, '');
         if (tmp.match(/^[\+]{0,1}380([0-9]{9})$/) == null) {
             helperSpan
                 .classList
@@ -123,15 +154,13 @@ const ComponentPhoneInput = (props) => {
                     if (e.key == "Backspace") {
                         setBackspace(false)
                     }
-                    
                 }}
                     onKeyDown={(e) => {
                     if (e.key == "Backspace") {
-                        setBackspace(true)
+                        setBackspace(true);
                         setNumber(false)
                     }
-                    if(/([0-9])/.test(e.target.value))
-                    {
+                    if (/([0-9])/.test(e.target.value)) {
                         setNumber(true)
                     }
                 }}
